@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Stegonagrapher demo</title>
+        <style>
+            html, body {
+                font-family: sans-serif;
+            }
+            div {
+                margin: 0 0 2rem 0;
+            }
+            h3, h4 {
+                margin: 0 0 1rem 0;
+                padding: 0;
+            }
+            .image {
+                display: block;
+                width: 400px;
+                height: 400px;
+                object-fit: contain;
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h3>Encoder</h3>
+            <div>
+                <h4>Encoder Image Input</h4>
+                <div>
+                    <input id="encoder-input-image" type="file" accept=".png,.gif,.jpg,.jpeg,.bmp,.tif,.tiff"/>
+                    <br />
+                    <textarea id="encoder-input-text" placeholder="Type text here"></textarea>
+                </div>
+                <div>
+                    <h4>Encoder Input Preview</h4>
+                    <img class="image" id="encoder-input-image-preview" src="#" alt="No image added" />
+                    <button id="encoder-start">Encode</button>
+                </div>
+            </div>
+            <div>
+                <h4>Encoder Output</h4>
+                <img class="image" id="encoder-output-image" src="#" alt="No image added" />
+                <a id="encoder-output-download" href="#" download>Download output</button>
+            </div>
+        </div>
+        <hr />
+        <div>
+            <h3>Decoder</h3>
+            <div>
+                <h4>Decoder Image Input</h4>
+                <div>
+                    <input id="decoder-input-image" type="file" accept=".png,.gif,.jpg,.jpeg,.bmp,.tif,.tiff" />
+                </div>
+                <div>
+                    <h4>Decoder Input Preview</h4>
+                    <img class="image" id="decoder-input-image-preview" src="#" alt="No image added" />
+                    <button id="decoder-start">Decode</button>
+                </div>
+            </div>
+            <div>
+                <h4>Decoder Output</h4>
+                <textarea readonly placeholder="Decoded text will show here" id="decoder-output-text"></textarea>
+            </div>
+        </div>
+    </body>
+    <script>
+        const state = {
+            encoderInputImageURL: null,
+            encoderInputText: null,
+            encoderOutputImageURL: null,
+            decoderInputImageURL: null,
+            decoderOutputText: null
+        }
+        const encoderInputImageEl = document.getElementById('encoder-input-image');
+        const encoderInputImagePreviewEl = document.getElementById('encoder-input-image-preview');
+
+        encoderInputImageEl.addEventListener('change', e => {
+            const [file] = e.target.files;
+            if (file) {
+                state.encoderInputImageURL = URL.createObjectURL(file);
+                encoderInputImagePreviewEl.src = state.encoderInputImageURL;
+            }
+        });
+
+        const encoderStartEl = document.getElementById('encoder-start');
+        const encoderInputText = document.getElementById('encoder-input-text');
+
+        encoderInputText.addEventListener('change', e => {
+            state.encoderInputText = e.target.value;
+        })
+
+        const encoderOutputImageEl = document.getElementById('encoder-output-image');
+        const encoderOutputDownloadEl = document.getElementById('encoder-output-download');
+
+        encoderStartEl.addEventListener('click', () => {
+            if (state.encoderInputText && state.encoderInputImageURL) {
+                Steg.encode(state.encoderInputText, state.encoderInputImageURL).then((url) => {
+                    state.encoderOutputImageURL = url;
+                    encoderOutputImageEl.src = state.encoderOutputImageURL;
+                    encoderOutputDownloadEl.href = state.encoderOutputImageURL;
+                });
+            } else {
+                alert('Please select an image & type in a message to encode.');
+            }
+        })
+
+        encoderOutputDownloadEl.addEventListener('click', e => {
+            if (encoderOutputDownloadEl.href === '#') {
+                e.preventDefault();
+            }
+        })
+
+        const decoderInputImageEl = document.getElementById('decoder-input-image');
+        const decoderInputImagePreviewEl = document.getElementById('decoder-input-image-preview');
+
+        decoderInputImageEl.addEventListener('change', e => {
+            const [file] = e.target.files;
+            if (file) {
+                state.decoderInputImageURL = URL.createObjectURL(file);
+                decoderInputImagePreviewEl.src = state.decoderInputImageURL;
+            }
+        })
+
+        const decoderStartEl = document.getElementById('decoder-start');
+        const decoderOutputTextEl = document.getElementById('decoder-output-text');
+
+        decoderStartEl.addEventListener('click', () => {
+            if (state.decoderInputImageURL) {
+                Steg.decode(state.decoderInputImageURL).then((str) => {
+                    state.decoderOutputText = str;
+                    decoderOutputTextEl.value = state.decoderOutputText;
+                })
+            } else {
+                alert('Please select an image to decode.')
+            }
+        })
+    </script>
+</html>
