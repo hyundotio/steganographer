@@ -11,7 +11,7 @@ const config = {
     output: {
         library: 'Steg',
         libraryTarget: 'umd',
-        filename: 'Stegonagrapher.js',
+        filename: 'steganographer.js',
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
