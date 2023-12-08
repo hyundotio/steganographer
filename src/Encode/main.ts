@@ -5,9 +5,9 @@
 
 import { config } from "../config";
 import { Options } from "../../@types/Options";
-import { loadImg } from "../utils/DOMUtils";
-import { findNextPrime } from "../utils/MathUtils";
-import { getHidingCapacity } from "../utils/HidingCapacity";
+import { loadImg } from "../Utils/DOMUtils";
+import { findNextPrime } from "../Utils/MathUtils";
+import { getHidingCapacity } from "../Utils/HidingCapacity";
 
 function messageDelimiter (threshold: number): number[] {
     const delimiter = new Array(threshold * 3);

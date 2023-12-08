@@ -4,8 +4,8 @@
 */
 
 import { Options } from "../../@types/Options";
-import { loadImg } from "../utils/DOMUtils";
-import { findNextPrime } from "../utils/MathUtils";
+import { loadImg } from "../Utils/DOMUtils";
+import { findNextPrime } from "../Utils/MathUtils";
 import { config } from "../config";
 
 function messageCompleted (data: Uint8ClampedArray, i: number) {

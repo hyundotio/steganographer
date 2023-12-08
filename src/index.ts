@@ -3,5 +3,5 @@
  * Licensed under MIT
 */
 
-export * from './Decode/main'
-export * from './Encode/main'
+export * from './Decode/Main'
+export * from './Encode/Main'
