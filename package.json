@@ -23,5 +23,18 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyundotio/stegonagrapher.git"
+  },
+  "keywords": [
+    "encryption"
+  ],
+  "author": "Hyun Seo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hyundotio/stegonagrapher/issues"
+  },
+  "homepage": "https://github.com/hyundotio/stegonagrapher#readme"
 }

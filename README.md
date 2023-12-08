@@ -6,6 +6,7 @@ Hide text in images!
 
 #### Import
 Browser: `<script src="./Stegonographer"></script>`
+
 TypeScript: `import { encode, decode } from Stegonographer`
 
 #### Embed text in an image
