@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2023 Hyun Seo
+ * Licensed under MIT
+*/
+
 import { Options } from "../../@types/Options";
 import { Config } from "../../@types/Config";
 

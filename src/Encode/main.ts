@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2023 Hyun Seo
+ * Licensed under MIT
+*/
+
 import { config } from "../config";
 import { Options } from "../../@types/Options";
 import { loadImg } from "../utils/DOMUtils";

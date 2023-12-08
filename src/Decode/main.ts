@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2023 Hyun Seo
+ * Licensed under MIT
+*/
+
 import { Options } from "../../@types/Options";
 import { loadImg } from "../utils/DOMUtils";
 import { findNextPrime } from "../utils/MathUtils";
@@ -18,7 +23,7 @@ function messageCompleted (data: Uint8ClampedArray, i: number) {
  * @param   {options} options Optional: Internal options. t: number, threshold: number, codeUnitSize: number
  * @returns {string} Returns extracted string
  */
-export async function decode(image: HTMLImageElement, options?: Options) {
+export async function decode(image: (HTMLImageElement | string), options?: Options) {
     // Handle image url
     if (typeof image === 'string') {
         image = loadImg(image);

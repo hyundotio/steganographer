@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2023 Hyun Seo
+ * Licensed under MIT
+*/
+
 /**
  * Takes in a string and returns an HTMLImageElement
  *

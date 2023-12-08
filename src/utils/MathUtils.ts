@@ -1,3 +1,8 @@
+/*
+ * Copyright (C) 2023 Hyun Seo
+ * Licensed under MIT
+*/
+
 /**
  * Checks if a number is a prime number
  *
