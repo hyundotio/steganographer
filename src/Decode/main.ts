@@ -1,7 +1,7 @@
 import { Options } from "../../@types/Options";
 import { loadImg } from "../utils/DOMUtils";
 import { findNextPrime } from "../utils/MathUtils";
-import { config } from "../../config";
+import { config } from "../config";
 
 function messageCompleted (data: Uint8ClampedArray, i: number) {
     let done = true;

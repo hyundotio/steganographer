@@ -7,15 +7,17 @@ Hide text in images!
 #### Import
 Browser: `<script src="./Stegonographer"></script>`
 
-TypeScript: `import { encode, decode } from Stegonographer`
+TypeScript: `import { decode, encode } from 'stegonagrapher'`
 
 #### Embed text in an image
  `Steg.encode(imageURL, 'string')`
+ `encode(imageURL, 'string')`
  outputs string containing internal client URL of the image
 
 
 #### Extract text from an image
 `Steg.decode(imageURL)`
+`decode(imageURL)`
  outputs string containing message
 
   ---

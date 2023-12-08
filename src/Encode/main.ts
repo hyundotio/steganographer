@@ -1,4 +1,4 @@
-import { config } from "../../config";
+import { config } from "../config";
 import { Options } from "../../@types/Options";
 import { loadImg } from "../utils/DOMUtils";
 import { findNextPrime } from "../utils/MathUtils";
