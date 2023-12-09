@@ -2,7 +2,7 @@
 Steganographer is a JavaScript/TypeScript library used to encode secret messages inside images and to decode them again. The original project is from [https://github.com/petereigenschink/steganography.js](https://github.com/petereigenschink/steganography.js) by [Peter Eigenschink](https://github.com/petereigenschink) - steganographer removed unused code, adds some quality of life improvements, and allows this to be used easily as a module in JavaScript or TypeScript projects.
 
 ## Demo
-[https://hyundotio.github.io/steganographer](https://hyundotio.github.io/steganographer)
+[https://hyundotio.github.io/steganographer/dist](https://hyundotio.github.io/steganographer/dist)
 
 ## How does it work
 Behind the scenes steganographer uses an algorithm to convert the given message into appropriate binary data which then will be hidden in the alpha channel of the given cover image. A HTML5 canvas element is then used to process the data and the image. To decode a message from a given image, a similiar algorithm is applied on the imagedata.
